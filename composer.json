@@ -1,0 +1,23 @@
+{
+    "name": "zonapro/mercadopago",
+    "description": "",
+    "authors": [
+        {
+            "name": "Jorge Saud",
+            "email": "jorgelsaud@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Zonapro\\Mercadopago\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
