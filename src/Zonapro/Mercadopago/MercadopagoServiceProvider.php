@@ -1,5 +1,6 @@
 <?php namespace Zonapro\Mercadopago;
 
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 
 class MercadopagoServiceProvider extends ServiceProvider {
@@ -19,6 +20,7 @@ class MercadopagoServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('zonapro/mercadopago');
+        $app = $this->app;
 	}
 
 	/**
@@ -28,7 +30,13 @@ class MercadopagoServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+
+		$this->app['mercadopago']=$this->app->share(function($app){
+                return new MPRestClient();
+        });
+        $this->app['mercadopago']=$this->app->share(function($app){
+            return new MP(Config::get('mercadopago::mp_client_id'),Config::get('mercadopago::mp_secret'));
+        });
 	}
 
 	/**

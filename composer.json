@@ -1,10 +1,16 @@
 {
     "name": "zonapro/mercadopago",
-    "description": "",
+    "type": "laravel",
+    "description": "add mercadopago to my laravel",
+    "homepage": "http://github.com/jorgelsaud",
+    "keywords": ["laravel", "mercadopago"],
+    "license": "GPL-3.0+",
     "authors": [
         {
             "name": "Jorge Saud",
-            "email": "jorgelsaud@gmail.com"
+            "email": "jorgelsaud@gmail.com",
+            "homepage": "http://zonapro.net",
+            "role":"Web Developer"
         }
     ],
     "require": {
