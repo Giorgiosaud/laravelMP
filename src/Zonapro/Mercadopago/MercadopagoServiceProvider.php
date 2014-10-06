@@ -17,10 +17,9 @@ class MercadopagoServiceProvider extends ServiceProvider {
 	 *
 	 * @return void
 	 */
-	public function boot()
-	{
+	public function boot() {
 		$this->package('zonapro/mercadopago');
-        $app = $this->app;
+		$app = $this->app;
 	}
 
 	/**
@@ -28,15 +27,17 @@ class MercadopagoServiceProvider extends ServiceProvider {
 	 *
 	 * @return void
 	 */
-	public function register()
-	{
+	public function register() {
 
-		$this->app['mercadopago']=$this->app->share(function($app){
-                return new MPRestClient();
-        });
-        $this->app['mercadopago']=$this->app->share(function($app){
-            return new MP(Config::get('mercadopago::mp_client_id'),Config::get('mercadopago::mp_secret'));
-        });
+		$this->app['mercadopago'] = $this->app->share(function ($app) {
+				return new MPRestClient();
+			});
+		$this->app['mercadopago'] = $this->app->share(function ($app) {
+				$mp = new MP(Config::get('mercadopago::mp_client_id'), Config::get('mercadopago::mp_secret'));
+				$mp->sandbox_mode(Config::get('mercadopago::mp_sandbox_mode'));
+				return $mp;
+			});
+
 	}
 
 	/**
@@ -44,8 +45,7 @@ class MercadopagoServiceProvider extends ServiceProvider {
 	 *
 	 * @return array
 	 */
-	public function provides()
-	{
+	public function provides() {
 		return array('mercadopago');
 	}
 
