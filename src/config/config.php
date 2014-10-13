@@ -9,7 +9,7 @@ return [
 	|
 	|
 	 */
-	'mp_client_id' => '',
+	'mp_client_id' => 'ingrese su client id de mercadopago',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -18,7 +18,7 @@ return [
 	|
 	|
 	 */
-	'mp_secret' => '',
+	'mp_secret' => 'clave secreta de mp',
 	/*
 	|--------------------------------------------------------------------------
 	| mercadopago Sandobox mode
